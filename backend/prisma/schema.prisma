@@ -11,6 +11,7 @@ model Project {
     id Int @id @default(autoincrement())
     name String
     layers LayerType[]
+    users User[] @relation("UserProject")
 }
 model LayerType {
     id Int @id @default(autoincrement())
@@ -18,4 +19,11 @@ model LayerType {
     value String
     projectId Int
     project Project @relation(fields: [projectId], references: [id])
+}
+model User {
+    id Int @id @default(autoincrement())
+    email String @unique
+    passwordHash String
+    name String
+    projects Project[] @relation("UserProject")
 }
