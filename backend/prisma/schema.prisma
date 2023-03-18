@@ -35,7 +35,9 @@ model Asset {
     data Bytes
     itemWidth Int
     itemHeight Int
-    ItemSpacing Int
+    itemSpacing Int
+    totalWidth Int
+    totalHeight Int
     projectId Int
     project Project @relation(fields: [projectId], references: [id])
 }

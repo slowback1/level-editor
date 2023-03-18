@@ -6,7 +6,9 @@ CREATE TABLE "Asset" (
     "data" BYTEA NOT NULL,
     "itemWidth" INTEGER NOT NULL,
     "itemHeight" INTEGER NOT NULL,
-    "ItemSpacing" INTEGER NOT NULL,
+    "itemSpacing" INTEGER NOT NULL,
+    "totalWidth" INTEGER NOT NULL,
+    "totalHeight" INTEGER NOT NULL,
     "projectId" INTEGER NOT NULL,
 
     CONSTRAINT "Asset_pkey" PRIMARY KEY ("id")
