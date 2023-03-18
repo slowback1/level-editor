@@ -13,6 +13,7 @@ model Project {
     layers LayerType[]
     users User[] @relation("UserProject")
     assets Asset[]
+    levels Level[]
 }
 model LayerType {
     id Int @id @default(autoincrement())
@@ -20,6 +21,7 @@ model LayerType {
     value String
     projectId Int
     project Project @relation(fields: [projectId], references: [id])
+    layers LevelTileLayer[]
 }
 model User {
     id Int @id @default(autoincrement())
@@ -40,4 +42,31 @@ model Asset {
     totalHeight Int
     projectId Int
     project Project @relation(fields: [projectId], references: [id])
+}
+model Level {
+    id Int @id @default(autoincrement())
+    name String
+    description String
+    width Int
+    height Int
+    projectId Int
+    project Project @relation(fields: [projectId], references: [id])
+    tiles LevelTile[]
+}
+
+model LevelTile {
+    id Int @id @default(autoincrement())
+    x Int
+    y Int
+    levelId Int
+    level Level @relation(fields: [levelId], references: [id])
+    layers LevelTileLayer[]
+}
+
+model LevelTileLayer {
+    id Int @id @default(autoincrement())
+    levelTileId Int
+    levelTile LevelTile @relation(fields: [levelTileId], references: [id])
+    layerTypeId Int
+    layerType LayerType @relation(fields: [layerTypeId], references: [id])
 }
