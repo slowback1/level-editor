@@ -1,4 +1,4 @@
-import { Project, LayerType, User } from '@prisma/client';
+import { Project, LayerType, User, Asset } from '@prisma/client';
 
 export const seedProjects: Project[] = [
   {
@@ -42,5 +42,32 @@ export const seedLayerTypes: LayerType[] = [
     label: 'Layer Type 2',
     value: 'layer-type-2',
     projectId: 1,
+  },
+];
+
+export const seedAssets: Asset[] = [
+  {
+    id: 1,
+    name: 'Asset 1',
+    data: new Buffer('test'),
+    projectId: 1,
+    description: 'Asset 1',
+    itemHeight: 32,
+    itemSpacing: 0,
+    itemWidth: 32,
+    totalWidth: 32 * 8,
+    totalHeight: 32 * 8,
+  },
+  {
+    id: 2,
+    name: 'Asset 2',
+    data: new Buffer('test'),
+    projectId: 1,
+    description: 'Asset 2',
+    itemHeight: 32,
+    itemSpacing: 0,
+    itemWidth: 32,
+    totalWidth: 32 * 8,
+    totalHeight: 32 * 8,
   },
 ];

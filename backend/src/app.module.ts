@@ -12,6 +12,8 @@ import { AuthService } from './modules/auth/auth.service';
 import { JwtStrategy } from './modules/auth/jwt.strategy';
 import { JwtAuthGuard } from './modules/auth/jwt-auth.guard';
 import { JwtService } from '@nestjs/jwt';
+import { AssetService } from './modules/asset/asset.service';
+import { AssetController } from './modules/asset/asset.controller';
 
 @Module({
   imports: [],
@@ -20,6 +22,7 @@ import { JwtService } from '@nestjs/jwt';
     ProjectController,
     LayerTypeController,
     UserController,
+    AssetController,
   ],
   providers: [
     AppService,
@@ -31,6 +34,7 @@ import { JwtService } from '@nestjs/jwt';
     JwtStrategy,
     JwtAuthGuard,
     JwtService,
+    AssetService,
   ],
 })
 export class AppModule {}
