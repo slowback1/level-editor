@@ -18,10 +18,18 @@ export class ProjectService {
     return project;
   }
 
-  async createProject(project: { name: string }): Promise<Project> {
+  async createProject(project: {
+    name: string;
+    userId: number;
+  }): Promise<Project> {
     const newProject = await this.client.project.create({
       data: {
         name: project.name,
+        users: {
+          connect: {
+            id: project.userId,
+          },
+        },
       },
     });
     return newProject;
@@ -40,5 +48,17 @@ export class ProjectService {
       },
     });
     return updatedProject;
+  }
+
+  async getProjectsByUserId(userId: number): Promise<Project[]> {
+    return await this.client.project.findMany({
+      where: {
+        users: {
+          some: {
+            id: userId,
+          },
+        },
+      },
+    });
   }
 }

@@ -1,4 +1,4 @@
-import { Project, LayerType } from '@prisma/client';
+import { Project, LayerType, User } from '@prisma/client';
 
 export const seedProjects: Project[] = [
   {
@@ -12,6 +12,21 @@ export const seedProjects: Project[] = [
   {
     id: 3,
     name: 'Project 3',
+  },
+];
+
+export const seedUsers: User[] = [
+  {
+    id: 1,
+    name: 'test 1',
+    passwordHash: 'test 1',
+    email: 'test 1',
+  },
+  {
+    id: 2,
+    name: 'test 2',
+    passwordHash: 'test 2',
+    email: 'test 2',
   },
 ];
 
