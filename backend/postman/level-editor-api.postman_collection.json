@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "ab6f49a6-68fb-42c8-a65c-1481d1f2c7c2",
+		"name": "level-editor-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23584839"
+	},
+	"item": [
+		{
+			"name": "Layer Types",
+			"item": [
+				{
+					"name": "Create Layer Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"layerType\": {\n        \"label\": \"test\",\n        \"value\": \"test\",\n        \"projectId\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/layer-type",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"layer-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Layer Type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"layerType\": {\n        \"label\": \"test\",\n        \"value\": \"test 2\",\n        \"projectId\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/layer-type/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"layer-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Layer Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/layer-type",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"layer-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Layer Type By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/layer-type/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"layer-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Layer Types for Project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/layer-type/project/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"layer-type",
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Assets",
+			"item": [
+				{
+					"name": "Create Asset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"asset\": {\n        \"name\": \"test asset\",\n        \"description\": \"my cool description\",\n        \"itemWidth\": 32,\n        \"itemHeight\": 32,\n        \"itemSpacing\": 0,\n        \"totalWidth\": 320,\n        \"totalHeight\": 320,\n        \"projectId\": 1,\n        \"data\": \"12345\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/asset",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"asset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Asset By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/asset/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"asset",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Assets for Project",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/asset/for-project/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"asset",
+								"for-project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Asset",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"asset\": {\n        \"description\": \"updated\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/asset/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"asset",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Create Project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project\": {\n        \"name\": \"Test Project\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/project",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Projects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/project",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/project/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project\": {\n        \"name\": \"Test Project 1\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/project/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"project",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"name\": \"test2\",\n        \"email\": \"test2@example.com\",\n        \"password\": \"1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user\": {\n        \"name\": \"test2\",\n        \"password\": \"1234\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
