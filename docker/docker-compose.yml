@@ -6,6 +6,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: level_editor
+      POSTGRES_DB: level_editor_local
     volumes:
       - ../db:/var/lib/postgresql/data
