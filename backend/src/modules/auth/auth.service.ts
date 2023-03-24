@@ -4,7 +4,11 @@ import { JwtPayload } from './jwt.strategy';
 import { User } from '@prisma/client';
 import { PrismaService } from '../shared/prisma.service';
 import { UserService } from '../user/user.service';
-import { CreateUserDto, LoginUserDto } from '../user/user.dto';
+import {
+  CreateUserDto,
+  LoginUserDto,
+  UpdatePasswordDto,
+} from '../user/user.dto';
 
 @Injectable()
 export class AuthService {
@@ -40,6 +44,11 @@ export class AuthService {
       ...token,
       data: user,
     };
+  }
+
+  async change_password(payload: UpdatePasswordDto, id: number): Promise<User> {
+    const user = await this.usersService.updatePassword(payload, id);
+    return user;
   }
 
   private _createToken({ name }): any {

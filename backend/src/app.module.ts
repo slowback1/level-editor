@@ -14,6 +14,8 @@ import { JwtAuthGuard } from './modules/auth/jwt-auth.guard';
 import { JwtService } from '@nestjs/jwt';
 import { AssetService } from './modules/asset/asset.service';
 import { AssetController } from './modules/asset/asset.controller';
+import { LevelController } from './modules/level/level.controller';
+import { LevelService } from './modules/level/level.service';
 
 @Module({
   imports: [],
@@ -23,6 +25,7 @@ import { AssetController } from './modules/asset/asset.controller';
     LayerTypeController,
     UserController,
     AssetController,
+    LevelController,
   ],
   providers: [
     AppService,
@@ -35,6 +38,7 @@ import { AssetController } from './modules/asset/asset.controller';
     JwtAuthGuard,
     JwtService,
     AssetService,
+    LevelService,
   ],
 })
 export class AppModule {}

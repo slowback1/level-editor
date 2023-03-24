@@ -1,7 +1,17 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { LayerTypeService } from './layerType.service';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('layer-type')
+@UseGuards(AuthGuard('jwt'))
 export class LayerTypeController {
   constructor(private readonly layerTypeService: LayerTypeService) {}
 
