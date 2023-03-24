@@ -1,6 +1,6 @@
-#Level Editor Backend
+# Level Editor Backend
 
-##How To Run Locally
+## How To Run Locally
 Spin up a postgres database using the docker-compose file in the docker directory of this repository
 
 Run the following commands in the backend directory to run migrations on the database:
