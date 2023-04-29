@@ -1,12 +1,13 @@
 <script lang="ts">
+
     export let label: string = "";
-    export let onChange: (e: Event) => void = () => {};
+    export let onChange: (e: any) => void = () => {};
     export let type: string = "text";
 </script>
 
 <label class="slowback-input__label" part="slowback-input__label">
     {label}
-    <input type={type} on:change={e => onChange(e)} part="slowback-input" class="slowback-input" />
+    <input type={type} on:change={onChange} part="slowback-input" class="slowback-input" />
 </label>
 
 <style lang="scss">
