@@ -32,4 +32,7 @@ export default class UserDataFetcher extends DataFetcher {
 	Register(request: RegisterRequest): Promise<RegisterResponse> {
 		return this.Post('user/register', { user: request });
 	}
+	GetSession(): Promise<{ id: number; name: string }> {
+		return this.Get("user/session");
+	}
 }

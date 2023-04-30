@@ -21,4 +21,12 @@ describe('UserDataFetcher', () => {
 
 		expect(result.success).toEqual(true);
 	});
+	it("calls the correct url to get the user session", async () => {
+		MockRoute("user/session", { name: "bob", id: 1 });
+
+		let result = await dataFetcher.GetSession();
+
+		expect(result.name).toEqual("bob");
+		expect(result.id).toEqual(1);
+	})
 });
