@@ -5,3 +5,4 @@ level-editor.code-workspace
 .vscode
 db
 docker/docker-compose.override.yml
+frontend/src/api.json
