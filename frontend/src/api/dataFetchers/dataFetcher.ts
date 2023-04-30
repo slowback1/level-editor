@@ -2,18 +2,20 @@ export default abstract class DataFetcher {
 	private static BaseUrl: string;
 
 	private async Request<T>(url: string, options: RequestInit): Promise<T> {
-		if (!DataFetcher.BaseUrl) await this.GetBaseUrl();
+		return this.GetBaseUrl().then(baseUrl => {
+			let combined = `${baseUrl}/${url}`;
 
-		let combined = `${DataFetcher.BaseUrl}/${url}`;
-
-		return fetch(url, options).then((res) => res.json());
+			return fetch(combined, options).then((res) => res.json());
+		})
 	}
 	private async GetBaseUrl() {
-		let json = await fetch('api.json').then((res) => res.json());
+		if (!DataFetcher.BaseUrl) {
+			let json = await fetch('api.json').then((res) => res.json());
 
-		if (json) DataFetcher.BaseUrl = json.baseUrl;
+			if (json) DataFetcher.BaseUrl = json.baseUrl;
+		}
 
-		return Promise.resolve();
+		return Promise.resolve(DataFetcher.BaseUrl);
 	}
 
 	protected Get<T>(url: string): Promise<T> {
