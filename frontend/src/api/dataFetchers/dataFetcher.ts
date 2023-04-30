@@ -1,9 +1,13 @@
+import { get } from "svelte/store";
+import { userDataStore } from "../../stores/userDataStore";
+
 export default abstract class DataFetcher {
 	private static BaseUrl: string;
 
 	private async Request<T>(url: string, options: RequestInit): Promise<T> {
 		return this.GetBaseUrl().then(baseUrl => {
 			let combined = `${baseUrl}/${url}`;
+			options = this.appendAuthorizationHeader(options);
 
 			return fetch(combined, options).then((res) => res.json());
 		})
@@ -16,6 +20,18 @@ export default abstract class DataFetcher {
 		}
 
 		return Promise.resolve(DataFetcher.BaseUrl);
+	}
+
+	private appendAuthorizationHeader(header: RequestInit) {
+		let userData = get(userDataStore);
+
+		if (userData) {
+			if (!header.headers) header.headers = {};
+
+			header.headers["Authorization"] = `Bearer ${userData.token}`;
+		}
+
+		return header;
 	}
 
 	protected Get<T>(url: string): Promise<T> {

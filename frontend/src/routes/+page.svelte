@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { get } from 'svelte/store';
+	import { userDataStore } from '../stores/userDataStore';
+
+	let userData = get(userDataStore);
+
+	const userIsLoggedIn = !!userData;
+
+	window.location.href = '/login';
+</script>
