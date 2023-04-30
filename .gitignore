@@ -4,3 +4,4 @@ terraform/.terraform
 level-editor.code-workspace
 .vscode
 db
+docker/docker-compose.override.yml
