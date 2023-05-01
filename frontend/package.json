@@ -14,7 +14,7 @@
     "build-storybook": "storybook build",
     "test": "jest",
     "test:watch": "jest --watch",
-    "chromatic": "npx chromatic"
+    "chromatic": "npx chromatic --exit-zero-on-changes --ci"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
