@@ -8,6 +8,8 @@
 				.replace(/^ +/, '')
 				.replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
 		});
+
+		window.location.reload();
 	}
 </script>
 

@@ -12,7 +12,11 @@
 	const login = async () => {
 		let loginResponse = await api.User.Login(username, password);
 
-		loadUserResponse(loginResponse);
+		if (loginResponse) {
+			loadUserResponse(loginResponse);
+
+			window.location.href = '/app';
+		}
 	};
 </script>
 
